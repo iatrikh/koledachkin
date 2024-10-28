@@ -25,13 +25,17 @@ driver.get("https://demoqa.com/select-menu")
 time.sleep(1)
 
 
-select_on_el = driver.find_element(*SELECT_ONE_INPUT_LOC)
-select_on_el.send_keys("Ms." + Keys.ENTER)
-time.sleep(1)
+# select_on_el = driver.find_element(*SELECT_ONE_INPUT_LOC)
+# select_on_el.send_keys("Ms." + Keys.ENTER)
+# driver.refresh()
+# driver.find_element(*SELECT_ONE_LOC).click()
+# driver.find_element(*SELECT_DR_LOC).click()
 
-driver.refresh()
-time.sleep(0.5)
-driver.find_element(*SELECT_ONE_LOC).click()
+MULTISELECT_LOC = (By.XPATH, "//input[@id='react-select-4-input']")
+
+multiselect_el = driver.find_element(*MULTISELECT_LOC)
+
+multiselect_el.send_keys("Green" + Keys.ENTER)
 time.sleep(1)
-driver.find_element(*SELECT_DR_LOC).click()
-time.sleep(1)
+multiselect_el.send_keys("Bla" + Keys.TAB)
+time.sleep(2)
